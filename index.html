@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+      * {
+        margin: 0;
+        padding :0;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+      }
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(to right, #1f2a3a, #390062, #6e238a);
+        color: white;
+        
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 60px;
+        background:linear-gradient(to right, #003f5c, #2f4b7c, #4f4f91, #5f2c82);
+      }
+      .logo {
+        color:aqua;
+        font-size: 35px;
+        padding: 30px;
+        font-weight:bold;
+      }
+      .nav-links {
+        display: flex;
+        gap: 20px
+      }
+      .nav-links a {
+        color: aqua;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 20px;
+        transition: 0.3s ease;
+      }
+      .nav-links a:hover {
+        color: rgb(1,250,113);
+        border-bottom: 2px solid rgb(1, 250, 113);
+        font-weight: bold;
+        transition: 0.3s ease;
+      }
+      .profile {
+         padding-left: 80px;
+         display: flex;
+         justify-content: center;
+         align-items: center; 
+      }
+      .profile-container {
+        padding:80px 80px;
+        padding-left: 10%;
+        padding-top: 7%;
+        display: flex;
+        align-items: right;
+        gap: 60px;
+        flex-wrap: wrap;
+      }
+      .profile-image img {
+        width: 410px;
+        height: 410px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 5px solid #acb0e1;
+        box-shadow: 0 0 15px rgba(0,0,0,0.6);
+      }
+      .intro {
+        max-width: 800px;
+        padding-top:4%
+      }
+      .intro h1 {
+        font-size: 48px;
+        font-weight: 800;
+        color: aqua;
+      }
+
+      .intro h3 {
+        font-size: 25px;
+        margin: 10px 0;
+        color: #566695;
+      }
+
+      .intro p {
+        max-width: 600px;
+        margin: 20px 0;
+        text-align: justify;
+        line-height: 1.7;
+        font-size: 20px;
+        font-weight: 700;
+        color: cyan;
+      }
+      .download-btn {
+        font-size: 20px;
+        font-weight: 700;
+        background:linear-gradient(to right, #2c3e50, #4b0082, #8e44ad);
+        padding: 12px 20px;
+        display: inline-flex;
+        color: antiquewhite;
+        border-radius: 10px;
+        box-shadow: 3px solid rgba(0,0,0,1);
+      }
+      .download-btn:hover {
+        transform: translate(3px,-5px);
+        font-weight: bolder;
+        color: rgb(1,250,113);
+      }
+      section {
+        transition: background 0.5s ease-in-out;
+      }
+      .about {
+        padding-bottom: 50px;
+        background: linear-gradient(to right, #35465e, #6128a1, #9c4abd);
+      }
+      
+      .about h2 {
+        font-size: 2.5rem;
+        color: aqua;
+        text-align: center;
+        margin-bottom: 30px; 
+        padding-bottom: 30px;
+        padding-top: 70px;
+      }
+      .about p {
+        font-size: 25px;
+        padding-left:300px;
+        padding-bottom: 50px;
+        text-align: justify;
+        max-width: 1200px;
+        color: cyan;
+      }
+      .skills-section {
+        padding: 50px;
+        text-align: center;
+        padding-bottom: 70px;
+      }
+
+      .skills-section h1 {
+        font-size: 2.5rem;
+        color: aqua;
+        margin-bottom: 30px;
+        padding-top: 50px;
+      }
+      .skills-section h2 {
+        padding-bottom: 30px;
+        padding-top: 70px;
+        font-size: 2.5rem;
+        color: aqua;
+        margin-bottom: 30px;
+      }
+
+      .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+      }
+
+      .skill-card {
+        background:linear-gradient(to right, #ff758c, #ff7eb3, #ffb6b9);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        width: 200px;
+        padding: 20px;
+        transition: transform 0.3s ease;
+      }
+
+      .skill-card:hover {
+          transform: translateY(-5px);
+      }
+
+      .skill-card img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+      }
+
+      .skill-card h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: cyan;
+      }
+
+      .skill-card p {
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin-top: 8px;
+      }
+      .progress-bar {
+        width: 100%;
+        background-color: #eee;
+        height: 8px;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 10px 0;
+      }
+
+      .progress-bar div {
+        height: 100%;
+        background-color: #8e44ad;
+        border-radius: 10px;
+        transition: width 0.5s ease-in-out;
+      }
+      .project-section {
+        padding-bottom: 50px;
+        background: linear-gradient(to right, #35465e, #6128a1, #9c4abd);
+      }
+      .project-section h1 {
+        font-size: 2.5rem;
+        color: aqua;
+        text-align: center;
+        margin-bottom: 50px; 
+        padding-top: 70px;
+      }
+      .project-section h2 {
+        font-size: 1.8rem;
+        text-align: center;
+        color: aqua;
+        margin-bottom: 30px; 
+        padding-top:30px;
+      }
+      .project-box {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+      }
+      .project-list {
+        background:linear-gradient(to right, #c94b9b, #8e44ad, #6c5ce7);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        max-width: 900px;
+        padding: 20px;
+        transition: transform 0.3s ease;
+      }
+      .project-list p {
+        font-size: 20px;
+        text-align: justify;
+        padding-bottom: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+        font-weight: 600;
+        color:rgb(149, 205, 205);
+      }
+      .view {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+      }
+      .view-details {
+        font-size: 18px;
+        font-weight: 700;
+        background:linear-gradient(to right, #655e8f, #a758df, #c52cef);
+        padding: 10px 15px;
+        display: inline-flex;
+        color: antiquewhite;
+        border-radius: 5px;
+        box-shadow: 3px solid rgba(0,0,0,1);
+      }
+      .view-details:hover {
+        transform: translate(3px,-5px);
+        font-weight: bolder;
+        color: rgb(1,250,113);
+      }
+      .education {
+        padding-bottom: 70px;
+        max-width: 800px;
+        margin: auto;
+      }
+
+      .education h1 {
+        padding-top: 70px;
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 50px;
+        color: aqua;
+      }
+
+      .edu-card {
+        background: linear-gradient(to right, #ff6fa7, #bf7be1, #6db3f2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 25px 30px;
+        padding-top:20px ;
+        margin-bottom: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+      }
+
+      .edu-left h3 {
+        font-size: 1.5rem;
+        margin: 0 0 5px;
+        color: #566695;
+      }
+
+      .edu-left p {
+        margin: 4px 0;
+        font-size: 1.1rem;
+        color: cyan;
+      }
+
+      .edu-right span {
+        text-align: right;
+        font-size: 0.95rem;
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: rgb(2, 71, 92);
+      }
+
+      .edu-right .mark {
+        color: #269265;
+        font-weight: bold;
+      }
+      .internship {
+        padding-bottom: 50px;
+        background: linear-gradient(to right, #35465e, #6128a1, #9c4abd);
+      }
+      .internship h1 {
+        padding-top: 70px;
+      }
+      .intern-box {
+        margin: auto;
+        align-items: center;
+        max-width: 800px;
+      }
+      .internship h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 50px;
+        color: aqua;
+      }
+
+      .intern-card {
+        background:linear-gradient(to right, #c94b9b, #8e44ad, #6c5ce7);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 25px 30px;
+        padding-top:20px ;
+        max-width: 900px;
+        margin-bottom: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+      }
+
+      .intern-left h3 {
+        font-size: 1.5rem;
+        margin: 0 0 5px;
+        color: aqua;
+        padding-bottom: 10px;
+      }
+
+      .intern-left h4 {
+        font-size: 1rem;
+        margin: 0 0 5px;
+        color: aquamarine;
+        padding-bottom: 10px;
+      }
+
+      .intern-left p {
+        margin: 4px 0;
+        text-align: justify;
+        max-width: 450px;
+        font-size: 1.1rem;
+        color: cyan;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .intern-right {
+        text-align: right;
+        font-size: 0.95rem;
+      }
+
+      .intern-right span {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: rgb(2, 71, 92);
+      }
+
+      .intern-right .mark {
+        color: #269265;
+        font-weight: bold;
+      }
+      .certification {
+        padding-top: 70px;
+        padding-bottom: 70px;
+      }
+      .certification h1 {
+        color: aqua;
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      .certification h2 {
+        text-align: center;
+        font-size: 1.8rem;
+        padding-top: 50px;
+        padding-bottom: 20px;
+      }
+      .certificate-list {
+        background: linear-gradient(to right, #ff6fa7, #bf7be1, #6db3f2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 25px 30px;
+        padding-top:20px ;
+        max-width: 500px;
+        margin-bottom: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        padding-bottom: 50px;
+      }
+      .certificate-box {
+        padding-left: 515px;
+      }
+      .certificate-list h2 {
+        padding-left: 50px;
+      }
+      .certificate-list p {
+        padding-left: 50px;
+        font-size: 1.1rem;
+        color: cyan;
+      }
+      .contact-section {
+        padding: 70px;
+        text-align: center;
+        background: linear-gradient(to right, #35465e, #6128a1, #9c4abd);
+      }
+
+      .contact-section h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 30px;
+      }
+
+      .contact-box {
+        background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+        padding: 40px 30px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        max-width: 700px;
+        margin: auto;
+        backdrop-filter: blur(10px);
+      }
+
+      .contact-info p {
+        margin: 12px 0;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        color: #e0e0e0;
+      }
+
+      .contact-info i {
+        font-size: 1.2rem;
+        color: #7ed6df;
+      }
+
+      hr {
+        border: 0.5px solid rgba(255, 255, 255, 0.2);
+        margin: 30px 0;
+      }
+
+      .declaration {
+        font-style: italic;
+        color: #ccc;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      .link {
+        padding:70px;
+      }
+      .link {
+        text-align: center;
+        color: aqua;
+        font-size: 1.8rem;
+      }
+      .social-links img {
+        padding-left: 30px;
+      }
+      .social-links p {
+        padding-top: 10px;
+        font-size: 15px;
+      }
+    </style>
+</head>
+<body>
+  <header>
+     <nav class="navbar">
+      <div class="logo">Portfolio</div>
+      <ul class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#internship">Internship</a>
+        <a href="#certification">Certification</a>
+        <a href="#contact">Contact</a>
+      </ul>
+  </header>
+  <section class="profile">
+    
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="althaaf.jpg" alt="Profile Image">
+      </div>
+      <div class="intro">
+        <h1>HI, I am  Althaaf HUSSAIN J</h1>
+        <h3>B.E. - Electronics And Communication Engineering</h3>
+        <p>
+          Aspiring person seeking to establish a career organization where I can contribute a strong work ethic and actively explore career opportunities in my field, thereby positively impacting the organization's growth and success.</p>
+        </p>
+         <a href="Althaafhussain Resume.pdf" class="download-btn" download>
+          <span>Download Resume ⬇️</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section id="about" class="about">
+    <h2>
+      About Me
+    </h2>
+    <p>
+      I am Althaaf Hussain J, Pursuing 4th year of B.E Electronics and Communication Engineering student at the Sethu Institute of Technology, Virudhunagar. I have an interest in coding and web development and am eager to learn and grow in this area. I am passionate about technology and aim to leverage my skills in web development to create innovative solutions that make a difference. My strengths include being optimistic, a team worker, and a quick learner. My hobbies are pencil drawing, playing video games, watching anime, and listening to music.<br><br>
+      Throughout my academic journey, I have actively participated in various technical workshops and online courses to enhance my programming knowledge. I enjoy collaborating with peers on projects and believe that teamwork leads to better results and personal growth. I am always open to new challenges and opportunities that allow me to apply my skills and learn from real-world experiences.<br><br>
+      In addition to my technical interests, I value creativity and problem-solving, which I express through both my academic projects and personal hobbies. I am committed to continuous learning and aspire to contribute positively to any team or organization I become a part of.
+    </p>
+  </section>
+   <section class="skills-section", id="skills">
+    <h1>Skills</h1>
+    <hr>
+    <h2>Programming Skills</h2>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <img src="html-icon.png" alt="HTML" />
+        <h2>HTML</h2>
+        <div class="progress-bar"><div style="width: 66%"></div></div>
+        <p>Intermediate</p>
+      </div>
+
+      <div class="skill-card">
+        <img src="css-icon.png" alt="CSS" />
+        <h2>CSS</h2>
+        <div class="progress-bar"><div style="width: 66%"></div></div>
+        <p>Intermediate</p>
+      </div>
+
+      <div class="skill-card">
+        <img src="python-icon.png" alt="Python" />
+        <h2>Python</h2>
+        <div class="progress-bar"><div style="width: 66%"></div></div>
+        <p>Intermediate</p>
+      </div>
+
+      <div class="skill-card">
+        <img src="c-icon.png" alt="C" />
+        <h2>C</h2>
+        <div class="progress-bar"><div style="width: 66%"></div></div>
+        <p>Intermediate</p>
+      </div>
+
+      <div class="skill-card">
+        <img src="java-icon.png" alt="Java" />
+        <h2>Java</h2>
+        <div class="progress-bar"><div style="width: 33%"></div></div>
+        <p>Begginer</p>
+      </div>
+
+      <div class="skill-card">
+        <img src="csharp-icon.png" alt="C#" />
+        <h2>C#</h2>
+        <div class="progress-bar"><div style="width: 33%"></div></div>
+        <p>Beginner</p>
+      </div>
+    </div>
+  </br>
+</br>
+</br>
+    <hr>
+    <h2>Core Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <img src="IOT.png" alt="IOT" />
+        <h2>Internet Of Things</h2>
+        <div class="progress-bar"><div style="width: 66%"></div></div>
+        <p>Intermediate</p>
+      </div>
+    </div>
+  </section>
+  <section class="project-section", id="projects">
+    <h1>
+      Projects
+    </h1>
+    <div class="project-box">
+    <div class="project-list">
+        <h2>R-CNN based Face Anti-Spoofing Detection</h2><p>The project is on the Image Processing domain as the face anti-spoofing detection using Deeplearning with the help of Python and the R-CNN architecture. The project aims to detect whether the face is real or fake by analyzing the image data.</p>
+        <div class="view">
+          <button class="view-details" view>
+            <a href="https://github.com/Althaafhussain/R-CNN-based-face-anti-Spoofing-detection-using-deep-learning..">
+            <span>View Details</span>
+            </a>
+          </button>
+        </div>
+    </div>
+    </div>
+    <br>
+    <br>
+    <div class="project-box">
+    <div class="project-list">
+        <h2>Portfolio</h2><p>The portfolio project is developed using the html, css, which I used as an internal coding in the HTML environment. This project of portfolio explain about me and my skills.</p>  
+        <div class="view">
+          <button class="view-details" view>
+            <a href="https://github.com/Althaafhussain/My-Portfolio">
+            <span>View Details</span>
+            </a>
+          </button>
+        </div>
+    </div>
+    </div>
+    <br>
+    <br>
+    <div class="project-box">
+    <div class="project-list">
+        <h2>Smart Home Automation</h2><p>The project based on the Domain of Internet of Things(IOT). And the project is used to control the home appliances using an Android app with the help of Arduino and bluetooth module.</p>
+        <div class="view">
+          <button class="view-details" view>
+            <a href="https://github.com/Althaafhussain/created-as-Smart-Home-Automation.">
+            <span>View Details</span>
+            </a>
+          </button>
+        </div>
+    </div>
+    </div>
+    <br>
+    <br>
+  </section>
+  <section id="education" class="education">
+     <h1>Education</h1>
+
+    <div class="edu-card">
+      <div class="edu-left">
+        <h3>Bachelor of Engineering</h3>
+        <p>B.E Electronics and Communication Engineering</p>
+        <p>Sethu Institute of Technology, Virudhunagar</p>
+      </div>
+      <div class="edu-right">
+        <span>2022 – 2026</span>
+        <strong class="mark">8.3/10 (Till 5th Semester)</strong>
+      </div>
+    </div>
+    <br/>
+    <div class="edu-card">
+      <div class="edu-left">
+        <h3>Higher Secondary School</h3>
+        <p>E.B.G. Matric Hr.Sec.School, Madurai</p>
+      </div>
+      <div class="edu-right">
+        <span>2021 – 2022</span>
+        <strong class="mark">HSC: 69%</strong>
+      </div>
+    </div>
+    <br/>
+    <div class="edu-card">
+      <div class="edu-left">
+        <h3>Secondary School</h3>
+        <p>E.B.G. Matric Hr.Sec.School, Madurai</p>
+      </div>
+      <div class="edu-right">
+        <span>2019 – 2020</span>
+        <strong class="mark">SSLC: 76.4%</strong>
+      </div>
+    </div>
+  </section>
+  <section id="internship" class="internship">
+     <h1>Internship</h1>
+    <div class="intern-box">
+    <div class="intern-card">
+      <div class="intern-left">
+        <h3>Project Intern-2022</h3>
+        <h4>Zetspire Technologies, Madurai</h4>
+        <p>A 1 week of internship of Learning and project working in the domain of Internet of Things in Zetspire Technologies.</p>
+      </div>
+      <div class="intern-right">
+        <span>NOV21 - NOV25</span>
+      </div>
+    </div>
+    <br/>
+    <div class="intern-card">
+      <div class="intern-left">
+        <h3>Learning Intern-2024</h3>
+        <h4>Rail Infotech Services, Madurai</h4>
+        <p>In- Plant training at Railway Infotech Services in the domain of Software.The field working of 140 ton Hydro Mechanic crane of automated digital sensors, working of microwave transmitter use din wireless communicaton of rail movement. visits of OFC transmission Centre.</p>
+      </div>
+      <div class="intern-right">
+        <span>JUN 18 - JUN 22</span>
+      </div>
+    </div>
+      <br/>
+      <div class="intern-card">
+      <div class="intern-left">
+        <h3>Learning Intern-2025</h3>
+        <h4>Phoenix Softech, Madurai</h4>
+        <p>A 3 weeks of Internship of learning and doing practical in the domain of UI/UX as the learning of HTML,CSS and Java script in the Phoenix Softech.</p>
+      </div>
+      <div class="intern-right">
+        <span>MAY 19 - JUN 06</span>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+  <section id="certification", class="certification">
+    <h1>
+      Certification
+    </h1>
+    <div class="certificate-box">
+      <div class="certificate-list">
+      <h2>Bootcamp Certification</h2>
+      <p>🎖 Internet of Things</p>
+      <p>🎖 The Fundamentals of Digital Marketing</p>
+      </div>
+      <br/>
+      <br/>
+      <div class="certificate-list">
+      <h2>Coursera Certification</h2>
+      <p>🎖 Introduction to Software Engineering</p>
+      <p>🎖 Introduction to Cloud Computing</p>
+      <p>🎖 Introduction to HTML, CSS and JavaScript</p>
+      <p>🎖 Introduction to C# and Unity game developmment</p>
+      <p>🎖 More about C# and Unity game development</p>
+      </div>
+      <br/>
+      <br/>
+      <div class="certificate-list">
+      <h2>NPTEL Certification</h2>
+      <p>🎖 Introduction to Internet of Things</p>
+      <p>🎖 Introduction to Industry 4.0 and Internet of Things</p>
+      <p>🎖 Microprocessors and Microcontrollers</p>
+      </div>
+    </div>
+  </section>
+  <section class="contact-section", id="contact">
+    <h1>For Contact</h1>
+    <div class="contact-box">
+      <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> althaafhussain925@gmail.com</p>
+        <p><i class="fas fa-phone"></i> +91-9842917566</p>
+        <p><i class="fas fa-map-marker-alt"></i> 163, Kanni Maari Amman Koil Street, K.Pudur, Madurai-625007.</p>
+      </div>
+      <hr>
+      <p class="declaration">
+        <em>
+          "I hereby declare that all the information furnished above are true to the best of my knowledge. I also declare that I will abide by the rules and regulations of the organization accepting my portfolio."
+        </em>
+      </p>
+    </div>
+  </section>
+  <footer>
+  <section class="link">
+    <h1>Social Links</h1>
+    <br/>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/althaaf-hussain-27582526a/" target="_blank" title="LinkedIn">
+        <img src="linkedin.png" alt="LinkedIn" class="social-icon">
+      </a>
+      <a href="https://github.com/Althaafhussain" target="_blank" title="GitHub">
+        <img src="github.png" alt="GitHub" class="social-icon">
+      </a>
+      <br/>
+      <p>© 2024 Althaaf Hussain J. All rights reserved.</p>
+    </div>
+  </section>
+  </footer>
+</body>
+</html>
